@@ -55,8 +55,6 @@ public static void reverse(int[] arr) {
 		long f1 = 0, f2 =1, ans = f1+f2;
 		if(n == 1) {
 			return 0;
-		}else if(n == 2) {
-			return f2;
 		}else {
 			for(int i = 0; i < n-2; i++) {
 				ans = f2+f1;
