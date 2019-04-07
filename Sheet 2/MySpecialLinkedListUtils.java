@@ -152,26 +152,28 @@ public class MySpecialLinkedListUtils {
 		return merge(mergeSort(left), mergeSort(right));
 		
 	}
-	public static boolean palindrome(LinkedListNode head) {
-		LinkedListNode curNode = head, temp = null;
-		int size = 0;
-		boolean palindrome = true;
-		while (curNode != null) {
-			curNode = curNode.getNext();
-			size++;
+	public static boolean palindrome(LinkedListNode head) { //usage of more memory to make it O(n)
+		LinkedListNode reversed = new LinkedListNode(head.getValue());
+		LinkedListNode temp = head.getNext();
+		LinkedListNode tail  = reversed;
+		while(temp != null) {
+			LinkedListNode x = new LinkedListNode(temp.getValue());
+			tail.setNext(x);
+			tail = x;
+			temp = temp.getNext();
 		}
-		for(int i = 0; i < size/2 && palindrome; ++i) {
-			curNode = head;
-			for (int j = 0; j < size-i-1 && palindrome; ++j) {
-				if(i==j) {
-					temp = curNode;
-				}
-				curNode = curNode.getNext();
+		reversed = reverse(reversed);
+		temp = head;
+		LinkedListNode middle = getMiddle(head);
+		boolean flag = true;
+		while(temp != middle.getNext() && flag) {
+			if(temp.getValue() != reversed.getValue()) {
+				flag = false;
 			}
-			if(temp.getValue() != curNode.getValue())
-				palindrome = false;
+			temp = temp.getNext();
+			reversed = reversed.getNext();
 		}
-		return palindrome;
+		return flag;
 	}
 	
 }
