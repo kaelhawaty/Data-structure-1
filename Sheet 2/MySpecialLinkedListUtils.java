@@ -118,12 +118,12 @@ public class MySpecialLinkedListUtils {
 		return head;
 	}
 	public static LinkedListNode getMiddle(LinkedListNode head) {
-		LinkedListNode oneStep=head, twoStep=head;
-		while(twoStep.getNext() != null && twoStep.getNext().getNext() != null) {
-			oneStep = oneStep.getNext();
-			twoStep = twoStep.getNext().getNext();
+		LinkedListNode oP=head, tP=head;
+		while(tP.getNext() != null && tP.getNext().getNext() != null) {
+			oP = oP.getNext();
+			oP = oP.getNext().getNext();
 		}
-		return oneStep;
+		return oP;
 	}
 	public static LinkedListNode merge(LinkedListNode left, LinkedListNode right) {
 		LinkedListNode sorted = new LinkedListNode(0);
