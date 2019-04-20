@@ -18,7 +18,7 @@ class term{
 	public void setExp(int t) {
 		exp = t;
 	}
-	
+
 }
 class node {
      node next;
@@ -50,17 +50,17 @@ class node {
     	}
     	throw new RuntimeException("Unable to compare");
  	}
-   
+
 }
 public class LinkedList {
 	private node head;
 	LinkedList(){
-		head = null;
+		head = new node();
 	}
 	LinkedList(term t){
 		head = new node(t);
 	}
-	
+
 	public node getHead() {
 		return head;
 	}
@@ -115,7 +115,7 @@ public class LinkedList {
 				prev.next = element;
 				element.next = cur;
 			}
-			
+
 		}
 	}
     public void add(Object element){
@@ -127,8 +127,8 @@ public class LinkedList {
         }else {
         	newNode.obj = element;
         }
-        
-        if(head == null || head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0)
+
+        if(head.obj == null || head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0)
         	head = newNode;
         else {
         	while(cur.next != null)
@@ -161,20 +161,19 @@ public class LinkedList {
     		head.getPolynomial().setCoeff(0);
     		head.getPolynomial().setExp(0);
     	}else {
-    		head = null;
+    		head.obj = null;
     	}
     }
     public boolean isEmpty(){
-        if(head == null) {
-    	     return true;
-    	}
     	if(head.obj instanceof term) {
-    	    if(head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0) {
-    		return true;
-              }
+    		if(head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0) {
+    			return true;
+    		}
+    	}else {
+    		if(head.obj == null) {
+    			return true;
+    		}
     	}
-    		
-    
         return false;
     }
     public void remove(int index){
