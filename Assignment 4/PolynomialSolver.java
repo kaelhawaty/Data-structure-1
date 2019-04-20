@@ -30,15 +30,9 @@ public class PolynomialSolver {
 			return ans;
 	}
 	void clearPolynomial(char poly) {
-		if(List[poly - 'A'].isEmpty()) {
-			throw new RuntimeException("Empty polynomial!");
-		}
 		List[poly- 'A'].clear();
 	}
 	float evaluatePolynomial(char poly, float value) {
-		if(List[poly - 'A'].isEmpty()) {
-			throw new RuntimeException("Empty polynomial!");
-		}
 		float ans = 0;
 		node cur = List[poly- 'A'].getHead();
 		while(cur != null) {
