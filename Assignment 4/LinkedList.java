@@ -165,15 +165,16 @@ public class LinkedList {
     	}
     }
     public boolean isEmpty(){
-    	if(head.obj instanceof term) {
-    		if(head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0) {
-    			return true;
-    		}
-    	}else {
-    		if(head.obj == null) {
-    			return true;
-    		}
+        if(head.obj == null) {
+    	     return true;
     	}
+    	if(head.obj instanceof term) {
+    	    if(head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0) {
+    		return true;
+              }
+    	}
+    		
+    
         return false;
     }
     public void remove(int index){
