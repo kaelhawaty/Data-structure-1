@@ -55,7 +55,7 @@ class node {
 public class LinkedList {
 	private node head;
 	LinkedList(){
-		head = new node();
+		head = null;
 	}
 	LinkedList(term t){
 		head = new node(t);
@@ -128,7 +128,7 @@ public class LinkedList {
         	newNode.obj = element;
         }
         
-        if(head.obj == null || head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0)
+        if(head == null || head.getPolynomial().getCoeff() == 0 && head.getPolynomial().getExp() == 0)
         	head = newNode;
         else {
         	while(cur.next != null)
@@ -161,7 +161,7 @@ public class LinkedList {
     		head.getPolynomial().setCoeff(0);
     		head.getPolynomial().setExp(0);
     	}else {
-    		head.obj = null;
+    		head = null;
     	}
     }
     public boolean isEmpty(){
