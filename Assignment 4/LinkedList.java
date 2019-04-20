@@ -165,7 +165,7 @@ public class LinkedList {
     	}
     }
     public boolean isEmpty(){
-        if(head.obj == null) {
+        if(head == null) {
     	     return true;
     	}
     	if(head.obj instanceof term) {
