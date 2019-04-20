@@ -177,7 +177,11 @@ public class LinkedList {
         return false;
     }
     public void remove(int index){
-        node cur = head;
+        if(this.size() == 1){
+		this.clear();
+		return;
+	}
+	 node cur = head;
         if(index <= 0)
         	head = head.next;
         else {
