@@ -1,21 +1,21 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs23_cs51;
 
-class node {
-     node next;
-     node prev;
+class Dnode {
+     Dnode next;
+     Dnode prev;
      Object obj;
 }
 public class DLinkedList {
-	private node head;
+	private Dnode head;
 	DLinkedList(){
-		head = new node();
+		head = new Dnode();
 	}
-	public node getHead() {
+	public Dnode getHead() {
 		return head;
 	}
 	public void add(int index, Object element){
-        node n = new node();
-        node cur = head;
+        Dnode n = new Dnode();
+        Dnode cur = head;
         n.obj = element;
         if(index <= 0) {
         	n.next = head;
@@ -34,8 +34,8 @@ public class DLinkedList {
     }
 	
     public void add(Object element){
-        node newNode = new node();
-        node cur = head;
+        Dnode newNode = new Dnode();
+        Dnode cur = head;
         newNode.obj = element;
         if(head.obj == null){
         	newNode.prev=null;
@@ -50,13 +50,13 @@ public class DLinkedList {
         }
     }
     public Object get(int index){
-        node cur = head;
+        Dnode cur = head;
         for (int i = 0; i < index && cur.next != null; ++i)
             cur = cur.next;
         return cur.obj;
     }
     public void set(int index, Object element){
-        node cur = head;
+        Dnode cur = head;
         for (int i = 0; i < index && cur.next != null; ++i)
             cur = cur.next;
         cur.obj = element;
@@ -72,7 +72,7 @@ public class DLinkedList {
         return false;
     }
     public void remove(int index){
-        node cur = head;
+        Dnode cur = head;
         if(index <= 0){
         	head = head.next;
             head.prev=null;
@@ -85,7 +85,7 @@ public class DLinkedList {
         }
     }
     public int size(){
-        node cur = head;
+        Dnode cur = head;
         int counter = 0;
         while (cur != null){
             cur = cur.next;
@@ -95,13 +95,13 @@ public class DLinkedList {
     }
     public DLinkedList sublist(int fromIndex, int toIndex){
     	DLinkedList newLinked = new DLinkedList();
-        node cur = head;
+        Dnode cur = head;
         for (int i = 0; i < fromIndex && cur.next != null; ++i)
             cur = cur.next;
-        node Ncur = newLinked.head;
+        Dnode Ncur = newLinked.head;
         Ncur.obj = cur.obj;
         for(int i = fromIndex; i < toIndex && cur.next != null; ++i){
-            node n = new node();
+            Dnode n = new Dnode();
             n.obj = cur.next.obj;
             cur = cur.next;
             Ncur.next = n;
@@ -112,7 +112,7 @@ public class DLinkedList {
         return newLinked;
     }
     public boolean contain(Object o){
-        node cur = head;
+        Dnode cur = head;
         while(cur != null){
             if(cur.obj  == o) 
             	return true;
