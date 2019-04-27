@@ -44,12 +44,12 @@ public class ExpressionEvaluator {
     }
 
     /**
-     * Checks whether a character is a number or not.
+     * Checks whether a character is a number or not or letter.
      * @param c Character to be checked
      * @return Boolean true if it is a number, Otherwise false.
      */
     public boolean isNumber(char c) {
-        return (c >= '0' && c <= '9');
+        return (c >= '0' && c <= '9') || (c >= 'a' && c<= 'z' ||  c>= 'A' && c <= 'Z');
     }
 
     /**
